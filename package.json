@@ -10,7 +10,9 @@
   "dependencies": {
     "core-js": "^2.5.5",
     "rxjs": "^6.1.0",
-    "zone.js": "^0.8.26"
+    "zone.js": "^0.8.26",
+    "d3": "5.0.0",
+    "@types/d3": "5.0.0"
   },
   "devDependencies": {
     "@types/node": "~10.0.4",
