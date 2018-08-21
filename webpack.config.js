@@ -17,7 +17,11 @@ module.exports = {
        filename: "[name].js"
     },
     resolve: {
-        extensions: ['.ts', '.js']
+        extensions: [
+            '.ts', '.js',
+            '.html',
+            '.css'
+        ]
     },
     module:{
        rules:[  
@@ -30,7 +34,15 @@ module.exports = {
                     },
                    'angular2-template-loader'
                ]
-            }
+            },
+            {
+                test: /\.html$/,
+                loader: "html-loader"
+            },
+            { 
+                test: /\.css$/,
+                loader: "css-loader" 
+            },
        ]
     },
     plugins: [

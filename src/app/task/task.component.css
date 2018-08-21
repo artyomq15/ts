@@ -1,0 +1,23 @@
+.task-container {
+    display: block;
+    float: left;
+    font-size: 15px;
+    color: red;
+    margin: 10px;
+}
+
+.task-container:hover {
+    cursor: pointer;
+}
+
+.done{
+    color: green;
+}
+
+.not-done{
+    color: red;
+}
+
+.done-btn{
+    background-color: aliceblue;
+}

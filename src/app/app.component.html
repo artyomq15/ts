@@ -1,0 +1,11 @@
+<div>
+    <div>Tasks</div>
+    <div>
+        <input type="text" name="description" [(ngModel)]="description" required>
+        <span class="btn add-task-btn" (click)="addTask()">add</span>
+    </div>
+    <div>
+        <task *ngFor="let task of tasks" [task]="task"></task>
+    </div>
+    
+</div>

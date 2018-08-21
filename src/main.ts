@@ -1,26 +1,6 @@
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { AppModule } from './app/app.module';
 
-import { Observable, fromEvent } from 'rxjs';
-import { auditTime, debounceTime, distinct } from 'rxjs/operators';
-import { map } from 'rxjs/operators';
+const platform = platformBrowserDynamic();
 
-import * as s  from 'd3-selection';
-
-// fromEvent(document, 'mousemove')
-//     .subscribe((x: MouseEvent) => console.log(x.clientX, " : ", x.clientY));
-
-/*let i = 0;
-
-fromEvent(document.querySelector('input'), 'keyup')
-    .pipe(map((x: any) => x.target.value), auditTime(500), distinct())
-    .subscribe(x => {
-        document.querySelector('div').innerHTML = x;
-        document.querySelector('span').innerHTML = String(++i);
-    });
-    
-*/
-
-
-
-
-
-
+platform.bootstrapModule(AppModule);
