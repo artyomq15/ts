@@ -1,7 +1,8 @@
 import { Component, Inject, Input } from '@angular/core';
 import { Task } from './task/task';
-import { AppState } from './app.state';
 import { TaskService } from './task/task.service';
+import { select } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
 
 
@@ -17,13 +18,11 @@ export class AppComponent{
     public tasks: Task[];
 
     constructor(private taskService: TaskService) {
-        taskService.getStore().subscribe(() => this.readState());
-        this.readState();
-    }
-
-    readState() {
-        const state: AppState = this.taskService.getStore().getState() as AppState;
-        this.tasks = state.tasks;
+        taskService.getStore()
+            .pipe(select('task'))
+            .subscribe(task => {
+                this.tasks = task.tasks;
+            });
     }
 
     addTask(){

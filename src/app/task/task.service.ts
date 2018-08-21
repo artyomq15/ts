@@ -1,14 +1,13 @@
 import { Injectable, Inject } from '@angular/core';
-import { Store } from 'redux';
+import { Store } from '@ngrx/store';
 import { AppState } from '../app.state';
-import { add, remove, markAsDone } from '../actions/taskActions';
+import * as TaskActions from '../actions/task.actions';
 import { Task } from './task';
-import { AppStore } from '../app.store';
 
 @Injectable()
 export class TaskService{
 
-    constructor(@Inject(AppStore) private store: Store<AppState>){
+    constructor(private store: Store<AppState>){
 
     }
 
@@ -17,15 +16,15 @@ export class TaskService{
     }
 
     public add(task: Task){
-        this.store.dispatch(add(task));
+        this.store.dispatch(new TaskActions.AddTask(task));
     }
 
     public remove(id: number){
-        this.store.dispatch(remove(id));
+        this.store.dispatch(new TaskActions.RemoveTask(id));
     }
 
     public markAsDone(id: number){
-        this.store.dispatch(markAsDone(id));
+        this.store.dispatch(new TaskActions.MarkTaskAsDone(id));
     }
 
 }

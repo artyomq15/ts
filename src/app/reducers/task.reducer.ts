@@ -1,30 +1,26 @@
-import { ADD, REMOVE, MARK_AS_DONE } from '../actions/taskActions';
+import { ADD_TASK, REMOVE_TASK, MARK_TASK_AS_DONE } from '../actions/task.actions';
 import { AppState } from "../app.state";
-import { Reducer } from 'redux';
+import * as TaskActions from '../actions/task.actions';
+import { Task } from '../task/task';
 
 
 
-export const taskReducer:Reducer<AppState> = (state: AppState = { tasks: [] }, action: any): AppState => {
+export const taskReducer = (state: AppState = { tasks: [] }, action: TaskActions.Actions): AppState => {
     switch(action.type){
-        case ADD: {
+        case TaskActions.ADD_TASK: {
             return {
-                tasks: state.tasks.concat([
-                    action.task
-                ])
+                tasks: state.tasks.concat([(<Task>action.payload)])
             };
         }
-        case REMOVE: {
-            let id =  action.id;
-            
+        case TaskActions.REMOVE_TASK: {            
             return {
-                tasks: state.tasks.filter((task) => task.getId() !== id)
+                tasks: state.tasks.filter((task) => task.getId() !== action.payload)
             };
         }
-        case MARK_AS_DONE: {
-            let id =  action.id;
+        case TaskActions.MARK_TASK_AS_DONE: {
             let tasks = state.tasks.slice();
 
-            tasks.find(x => x.getId() === id).markAsDone();
+            tasks.find(x => x.getId() === action.payload).markAsDone();
 
             return {
                 tasks: tasks

@@ -2,15 +2,24 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
+import { StoreModule } from '@ngrx/store';
+import { taskReducer } from './reducers/task.reducer';
+
 import { AppComponent } from './app.component';
 import { TaskComponent } from './task/task.component';
-import { appStoreProviders } from './app.store';
+
 import { TaskService } from './task/task.service';
 
 @NgModule({
-    imports: [BrowserModule, FormsModule],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        StoreModule.forRoot({
+            task: taskReducer
+        })
+    ],
     declarations: [AppComponent, TaskComponent],
-    providers: [ appStoreProviders , TaskService],
+    providers: [TaskService],
     bootstrap: [AppComponent]
 })
 

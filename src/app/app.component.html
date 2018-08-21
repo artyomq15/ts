@@ -5,7 +5,9 @@
         <span class="btn add-task-btn" (click)="addTask()">add</span>
     </div>
     <div>
-        <task *ngFor="let task of tasks" [task]="task"></task>
+        <ng-container *ngFor="let task of tasks">
+            <task [task]="task"></task>
+        </ng-container>
     </div>
     
 </div>
