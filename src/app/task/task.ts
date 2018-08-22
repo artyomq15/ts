@@ -1,20 +1,14 @@
 export class Task {
-    private id: number;
-    private description: string;
-    private isDone: boolean;
-    private dateFrom: Date;
-    private dateTo: Date;
 
-    constructor(id: number, description: string, dateFrom: Date, dateTo: Date){
-        this.id = id;
-        this.description = description;
-        this.dateFrom = dateFrom;
-        this.dateTo = dateTo;
-        this.isDone = false;
-    }
+    public isDone: boolean;
 
-    public getId(){
-        return this.id;
+    constructor(
+        public id: number,
+        public description: string,
+        public dateFrom: Date,
+        public dateTo: Date
+    ){
+      this.isDone = false;
     }
 
     public markAsDone(){
