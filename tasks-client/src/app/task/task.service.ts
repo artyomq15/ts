@@ -1,34 +1,13 @@
-import { Injectable, Inject } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Store } from '@ngrx/store';
-import { AppState } from '../app.state';
-import * as TaskActions from '../actions/task.actions';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Task } from './Task';
-import { map } from 'rxjs/operators';
-
 
 @Injectable()
 export class TaskService{
 
-    constructor(private store: Store<AppState>, private http: HttpClient){
+    constructor(private http: HttpClient){
 
     }
-
-    public getStore(){
-        return this.store;
-    }
-
-    /*public remove(id: number){
-        this.store.dispatch(new TaskActions.RemoveTask(id));
-    }*/
-
-    /*public markAsDone(id: number){
-        this.store.dispatch(new TaskActions.MarkTaskAsDone(id));
-    }*/
-
-
-
-    /////
 
     private REST_SERVICE_URI = 'http://localhost:3000/task';
 

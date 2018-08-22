@@ -1,9 +1,8 @@
 import { Injectable } from "@angular/core";
 
 import { Effect, Actions } from "@ngrx/effects";
-import { Action } from "@ngrx/store";
 
-import { Observable, of } from "rxjs";
+import { of } from "rxjs";
 import { map, catchError, switchMap } from "rxjs/operators";
 
 import * as taskActions from "../actions/task.actions";
@@ -16,7 +15,7 @@ export class TaskEffects{
     constructor(private actions: Actions, private taskService: TaskService) { }
 
     @Effect()
-    loadAll: Observable<Action> = this.actions
+    loadAll = this.actions
         .ofType(taskActions.LOAD_ALL)
         .pipe(
             map((action: taskActions.LoadAllTasks) => action.payload),
@@ -43,7 +42,7 @@ export class TaskEffects{
                     )
                 }
             )
-        )
+        );
 
     @Effect()
     remove = this.actions
@@ -58,7 +57,7 @@ export class TaskEffects{
                     )
                 }
             )
-        )
+        );
 
     @Effect()
     update = this.actions
@@ -73,5 +72,5 @@ export class TaskEffects{
                     )
                 }
             )
-        )
+        );
 }
