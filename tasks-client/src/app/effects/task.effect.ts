@@ -6,8 +6,8 @@ import { of } from "rxjs";
 import { map, catchError, switchMap } from "rxjs/operators";
 
 import * as taskActions from "../actions/task.actions";
-import { TaskService } from "../task/task.service";
-import { Task } from "../task/task";
+import { TaskService } from "../services/task.service";
+import { Task } from "../models/Task";
 
 @Injectable()
 export class TaskEffects{

@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
-import { Task } from './Task';
-import { TaskService } from './task.service';
-import * as TaskActions from '../actions/task.actions';
+import { Task } from '../../models/Task';
+import { TaskService } from '../../services/task.service';
+import * as TaskActions from '../../actions/task.actions';
 import { Store } from '@ngrx/store';
-import { AppState } from '../app.state';
+import { AppState } from '../../app.state';
 
 @Component({
     selector: 'task',

@@ -1,6 +1,6 @@
 import { AppState } from "../app.state";
 import * as TaskActions from '../actions/task.actions';
-import { Task } from '../task/Task';
+import { Task } from '../models/Task';
 
 export const taskReducer = (state: AppState = { tasks: [] }, action: TaskActions.Actions): AppState => {
     switch(action.type){

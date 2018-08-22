@@ -11,9 +11,9 @@ import { EffectsModule } from '@ngrx/effects';
 import { TaskEffects } from './effects/task.effect';
 
 import { AppComponent } from './app.component';
-import { TaskComponent } from './task/task.component';
+import { TaskComponent } from './components/task/task.component';
 
-import { TaskService } from './task/task.service';
+import { TaskService } from './services/task.service';
 
 @NgModule({
     imports: [

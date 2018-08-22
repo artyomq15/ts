@@ -1,4 +1,4 @@
-import { Task } from "../task/Task";
+import { Task } from "../models/Task";
 import { Action } from "@ngrx/store";
 
 

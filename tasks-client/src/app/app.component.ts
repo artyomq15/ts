@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Task } from './task/Task';
-import { TaskService } from './task/task.service';
+import { Task } from './models/Task';
+import { TaskService } from './services/task.service';
 import { select, Store } from '@ngrx/store';
 import * as TaskActions from './actions/task.actions';
 import { AppState } from './app.state';
