@@ -1,0 +1,12 @@
+{
+  "name": "rxjs",
+  "version": "1.0.0",
+  "description": "rxjs",
+  "author": "Artsiom Stankevich",
+  "scripts": {
+    "dev": "node ./src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}

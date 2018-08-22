@@ -5,6 +5,7 @@
         <span class="btn add-task-btn" (click)="addTask()">add</span>
     </div>
     <div>
+        <p *ngIf="error">{{error.message}}</p>
         <ng-container *ngFor="let task of tasks">
             <task [task]="task"></task>
         </ng-container>

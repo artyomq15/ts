@@ -1,8 +1,9 @@
-import { Component, Inject, Input } from '@angular/core';
-import { Task } from './task/task';
+import { Component, Inject, Input, OnInit } from '@angular/core';
+import { Task } from './task/Task';
 import { TaskService } from './task/task.service';
 import { select } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import * as TaskActions from './actions/task.actions';
 
 
 
@@ -11,18 +12,24 @@ import { Observable } from 'rxjs';
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css']
 })
-export class AppComponent{
+export class AppComponent implements OnInit{
 
     public description: string = '';
 
     public tasks: Task[];
+    public error: Error;
 
     constructor(private taskService: TaskService) {
         taskService.getStore()
             .pipe(select('task'))
             .subscribe(task => {
                 this.tasks = task.tasks;
+                this.error = task.error;
             });
+    }
+
+    ngOnInit(){
+        this.taskService.getStore().dispatch(new TaskActions.LoadAllTasks({}));
     }
 
     addTask(){
@@ -30,7 +37,8 @@ export class AppComponent{
         if (description === ''){
             description = 'unnamed';
         }
-        this.taskService.add(new Task(new Date().getTime(), description, new Date(), new Date()));
+
+        this.taskService.getStore().dispatch(new TaskActions.AddTask(new Task(new Date().getTime(), description, false, new Date(), new Date())));
         this.description = '';
     }
 

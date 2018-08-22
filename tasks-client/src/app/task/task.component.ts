@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { Task } from './task';
+import { Task } from './Task';
 import { TaskService } from './task.service';
+import * as TaskActions from '../actions/task.actions';
 
 @Component({
     selector: 'task',
@@ -16,11 +17,11 @@ export class TaskComponent{
     }
 
     public delete(id: number): void{
-        this.taskService.remove(id);
+        this.taskService.getStore().dispatch(new TaskActions.RemoveTask(id));
     }
 
-    public markAsDone(id: number): void{
-        this.taskService.markAsDone(id);
+    public markAsDone(task: Task): void{
+        this.taskService.getStore().dispatch(new TaskActions.UpdateTask(Object.assign({}, task, {isDone: true})));
     }
 
 

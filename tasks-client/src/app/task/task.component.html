@@ -1,5 +1,5 @@
 <div class="task-container" [ngClass]="task.isDone ? 'done' : 'not-done'">
     <p>{{task.description}}</p>
-    <span class="btn done-btn" (click)="markAsDone(task.id)">done</span>
+    <span class="btn done-btn" (click)="markAsDone(task)">done</span>
     <span class="btn" (click)="delete(task.id)">delete</span>
 </div>
