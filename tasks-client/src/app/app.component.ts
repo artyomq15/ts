@@ -20,7 +20,7 @@ export class AppComponent implements OnInit{
     public error: Error;
 
     constructor(private store: Store<AppState>, private taskService: TaskService) {
-        store.pipe(select('task'))
+        store.pipe(select('taskReducer'))
             .subscribe(task => {
                 this.tasks = task.tasks;
                 this.error = task.error;

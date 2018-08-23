@@ -21,9 +21,11 @@ import { TaskService } from './services/task.service';
         FormsModule,
         HttpClientModule,
         StoreModule.forRoot({
-            task: taskReducer
+            taskReducer
         }),
-        EffectsModule.forRoot([TaskEffects])
+        EffectsModule.forRoot([
+            TaskEffects
+        ])
     ],
     declarations: [AppComponent, TaskComponent],
     providers: [TaskService],
