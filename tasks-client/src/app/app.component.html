@@ -7,8 +7,9 @@
     <div>
         <p *ngIf="error">{{error.message}}</p>
         <ng-container *ngFor="let task of tasks">
-            <task [task]="task"></task>
+            <task [task]="task"  (counterNumber)="displayCount($event)"></task>
         </ng-container>
     </div>
+    <span>{{num}}</span>
     
 </div>

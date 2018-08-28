@@ -19,6 +19,8 @@ export class AppComponent implements OnInit{
     public tasks: Task[];
     public error: Error;
 
+    public num: number = 0;
+
     constructor(private store: Store<AppState>, private taskService: TaskService) {
         store.pipe(select('taskReducer'))
             .subscribe(task => {
@@ -29,6 +31,10 @@ export class AppComponent implements OnInit{
 
     ngOnInit(){
         this.store.dispatch(new TaskActions.LoadAllTasks({}));
+    }
+
+    displayCount(count: number){
+        this.num += count;
     }
 
     addTask(){

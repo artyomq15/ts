@@ -1,8 +1,8 @@
 import { Task } from "./models/Task";
 
-interface AppState{
+export interface AppState{
     tasks: Task[];
     error?: Error;
 }
 
-export { AppState }
+//export { AppState }
