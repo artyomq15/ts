@@ -17,15 +17,15 @@ import { TaskService } from './services/task.service';
 
 @NgModule({
     imports: [
-        BrowserModule,
-        FormsModule,
         HttpClientModule,
         StoreModule.forRoot({
             taskReducer
         }),
         EffectsModule.forRoot([
             TaskEffects
-        ])
+        ]),
+        BrowserModule,
+        FormsModule
     ],
     declarations: [AppComponent, TaskComponent],
     providers: [TaskService],
