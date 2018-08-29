@@ -15,8 +15,14 @@ import { CommonModule } from '@angular/common';
     imports: [
         CommonModule,
         BrowserModule,
-        FormsModule,
-        HttpClientModule
+        FormsModule
+        HttpClientModule,
+        StoreModule.forRoot({
+            taskReducer
+        }),
+        EffectsModule.forRoot([
+            TaskEffects
+        ])
     ],
     declarations: [AppComponent, TaskComponent],
     providers: [TaskService],
